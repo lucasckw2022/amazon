@@ -1,0 +1,24 @@
+<h1>Products List</h1>
+<table style="width:100%;">
+  <tbody>
+    <tr>
+      <td>
+        Product Name:
+      </td>
+      <td>
+        Currency:
+      </td>
+    </tr>
+    <% @products.each do |p|%>
+    <tr>
+    <td style="width:30%">
+      <%= link_to p.title, product_path(p) %>
+    </td>
+    <td>
+      $ <%= p.sale_price%>
+    </td>
+    </div>
+  </tr>
+    <% end %>
+  </tbody>
+</table>

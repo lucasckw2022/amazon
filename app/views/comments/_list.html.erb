@@ -1,0 +1,13 @@
+<div id="<%= dom_id(c)%>" style="<%=style if defined?(style)%>">
+  Created By: <%= c.user_full_name%>|
+  <%= c.body%> |
+  <%= c.star%> |
+  <div id="like-<%=dom_id(c)%>">
+    <%= render "likes/like", c:c%>
+  </div>
+  <%= link_to "Delete", product_comment_path(@product,c),
+                      data: {confirm: "Are you sure?"},
+                      method: :delete,
+                      remote: true%>
+<hr>
+</div>

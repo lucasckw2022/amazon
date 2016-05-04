@@ -1,0 +1,13 @@
+<p style="color:red">
+  <%= @comment.errors.full_messages.join(", ")%>
+</p>
+<%= form_for [@product,comment], remote: true  do |c|%>
+<div class="">
+  <%= c.text_area :body%>
+</div>
+<div class="">
+  <%= c.label :star%>
+  <input id="comment_star" name="comment[star]" type="number" class="rating" min=0 max=5 step=1 data-size="lg" data-rtl="false">
+</div>
+<%= c.submit%>
+<%end%>

@@ -1,0 +1,10 @@
+<% if user_like(c) %>
+<div id="<%=dom_id(user_like(c))%>">
+<%= link_to "Unlike", product_comment_like_path(@product, c.id, user_like(c.id)), method: :delete, remote:true %>
+(<%= c.likes.count%>)
+</div>
+<%else%>
+<%= link_to "Like", product_comment_likes_path(@product,c), method: :post, remote:true%>
+(<%= c.likes.count%>)
+<%end%>
+</div>

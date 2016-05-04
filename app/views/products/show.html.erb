@@ -1,0 +1,31 @@
+<h1><%= @product.title %></h1>
+<h2><%= @category%></h2>
+<p>
+  <%= @product.description %>
+</p>
+<p>
+  Price: $<%= @product.sale_price %>
+</p>
+<p>
+  Created By:<%= @product.user_full_name%>
+</p>
+<p>
+  <%= link_to "Edit", edit_product_path(@product) %>
+  <%= link_to "Delete", product_path(@product),method: :delete,data: {confirm: "Are you sure?"} %>
+</p>
+<hr>
+<div id="product-favourite">
+  <%= render "/favourites/favourite"%>
+</div>
+
+<hr>
+<h2>Comments</h2>
+ <div id="comment">
+   <%= render "/comments/form", comment: @comment %>
+ </div>
+<hr>
+<div id="comment-list">
+<% @product.comments.each do |c|%>
+    <%= render "/comments/list", c: c %>
+<%end%>
+</div>

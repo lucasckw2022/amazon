@@ -1,0 +1,20 @@
+<h1>Edit Product Information</h1>
+<%= form_for @product do |f|%>
+<div>
+  <%= f.label :title%>
+  <%= f.text_field :title%>
+</div>
+  <div>
+    <%= f.label :description%>
+    <%= f.text_field :description%>
+  </div>
+  <div>
+    <%= f.label :price%>
+    <%= f.number_field :price,min:0%>
+  </div>
+  <div class="">
+    <%= f.label :sale_price%>
+    <%= f.number_field :sale_price,min:0%>
+  </div>
+  <%= f.submit %>
+<% end %>

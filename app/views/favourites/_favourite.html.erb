@@ -1,0 +1,7 @@
+<%#byebug%>
+<% if user_favourite %>
+  <%= link_to "Unfavourite", product_favourite_path(@product, user_favourite), method: :delete,remote:true%>
+<% else%>
+<%= link_to "Favourite", product_favourites_path(@product), method: :post, remote:true%>
+<% end%>
+(<%= @product.favourites.count%>)

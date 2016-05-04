@@ -1,0 +1,3 @@
+$("#comment-list").prepend("<%= j render '/comments/list' ,c: @comment, style:'display:none'%>")
+$('#comment').html('<%= j render "/comments/form", comment: Comment.new %>');
+$("#<%=dom_id(@comment)%>").slideDown(1000)
