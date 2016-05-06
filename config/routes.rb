@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete "/products/:id" => "products#destroy"
 
   resources :products do
-    resources :comments, only: [:create,:destroy] do
+    resources :comments, only: [:create,:destroy,:index] do
       resources :likes, only: [:create, :destroy]
     end
     resources :favourites, only: [:create,:destroy]

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   def new
     @product = Product.new
-    @question.user = current_user
+    @product.user = current_user
     # render :new
   end
   def create
@@ -21,6 +21,11 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find params[:id]
     @comment = Comment.new
+    respond_to do |format|
+      format.html { render } # render questions/show.html.erb
+      # format.json { render json: @product.to_json }
+      format.xml  { render xml: @product.to_xml }
+    end
     if @product.category_id
       @category = Category.find(@product.category_id).name
     else
@@ -29,6 +34,10 @@ class ProductsController < ApplicationController
   end
   def index
     @products = Product.order("id").all
+    respond_to do |format|
+      format.html{render}
+      format.json { render json: @products.to_json(include: :comments) }
+    end
   end
   def edit
     @product = Product.find params[:id]

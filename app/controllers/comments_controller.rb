@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:index]
   def create
     @product = Product.find params[:product_id]
     comment_params = params.require(:comment).permit([:body,:star])

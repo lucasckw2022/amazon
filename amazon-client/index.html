@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Amazon Client</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-2.2.3.min.js"></script>
+    <script src="mustache.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <!-- we use a <script> tag with Mustache.js in order to have a snippet of
+            HTML that won't be displayed right away on the page but we can use
+            this template with Javascript to render HTML and then insert it in
+            the page
+            {title:"Hello World", id: 123, viewcount:10}
+          -->
+    <script id="product-summary" type="x-tmpl-mustache">
+      <h2><a href="javascript:void(0);" id="{{index}}">{{title}}</a></h2>
+      <hr>
+    </script>
+    <script id="product-details" type="x-tmpl-mustache">
+    <a href="javascript:void(0)" id="back">&lt; Back</a>
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>price: {{price}}</p>
+    <p>Sale price: {{sale_price}}</p>
+    <hr>
+    {{#comments}}
+    <p>{{body}}</p>
+    {{/comments}}
+    </script>
+    <script id="reviews" type="x-tmpl-mustache">
+    <h2>{{body}}</h2>
+    </script>
+    <div id="products"></div>
+    <div id="single-product"></div>
+  </body>
+</html>
